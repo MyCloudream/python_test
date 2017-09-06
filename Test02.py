@@ -15,8 +15,8 @@ res = repr(res)
 regex = r'http://[\S]*.jpg'
 # 将正则表达式编译为正则表达式对象，用于提高匹配效率
 pattern = re.compile(regex)
-# 获取第二个参数res中符合第一个参数pattern的字符串，结果为list类型
-get_image = re.findall(regex, res)
+# 使用编译好的正则对象调用findall方法，筛选出所有符合正则的数据，结果为list类型
+get_image = pattern.findall(res)
 # 定义临时变量，用于命名下载的图片
 page = 1
 for image in get_image:
