@@ -31,27 +31,25 @@ def write_text(path, text, mode='a'):
 
 url_get_questions = "http://m.nowcoder.com/test/get-all-question?t=02436CC60E649584D5C4BBF57709E5CA&fm=android_app_2.21.3.3091&tid=10679830"
 all_questions = get_json_data(url_get_questions)['data']['allQuestion']
+n = 1
 for item_question in all_questions:
     question = item_question['question']
     print(question['content'])
-    write_text("C://python_test/a.txt", question['content'], 'a')
+    write_text("C://python_test/a.html", str(n)+". "+question['content'], 'a')
     answer = question['answer']
     answer_option = ''
-    index = 1
+    index = 0
     for item_answer in answer:
         answer_content = item_answer['content']
         print(answer_content)
-        write_text("C://python_test/a.txt", answer_content, 'a')
+        answer_index_list = ['A', 'B', 'C', 'D']
+        write_text("C://python_test/a.html", answer_index_list[index]+". "+answer_content, 'a')
         answer_type = item_answer['type']
         if answer_type == 1:
-            if index == 1:
-                answer_option += 'A'
-            elif index == 2:
-                answer_option += 'B'
-            elif index == 3:
-                answer_option += 'C'
-            elif index == 4:
-                answer_option += 'D'
+            answer_option += answer_index_list[index]
         index += 1
     print(answer_option)
-    write_text("C://python_test/a.txt", answer_option, 'a')
+    write_text("C://python_test/b.html", '', 'a')
+    write_text("C://python_test/b.html", str(n)+"."+'答案: ' + answer_option, 'a')
+    write_text("C://python_test/b.html", '', 'a')
+    n += 1
