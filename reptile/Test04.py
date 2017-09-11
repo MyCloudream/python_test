@@ -30,8 +30,7 @@ class UploadDownload:
 
 def main():
     # 创建UploadDownload对象，包含3个属性
-    ud = UploadDownload('reptile', '6-kBdH6NX_MKKwkdOgbbUucgzv_149NIroPGPUbq',
-                        'Oo3Qf8xkYwXKxz7BusJRbCePWGAqFPKHOTXtRv2A')
+    ud = UploadDownload('reptile', '', '')
     # 调用ud对象的下载图片方法
     image_name = ud.download_image('https://cdn.pixabay.com/photo/2015/06/22/08/37/children-817365_960_720.jpg')
     # 对下载的图片上传
